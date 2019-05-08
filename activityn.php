@@ -102,20 +102,19 @@ class Activityn extends My_Controller {
     protected $activityTimeList = array(
                                     0 => array(
                                             's' => '2019-05-01 10:00:00',
-                                            // 'e' => '2018-12-03 23:59:59'
-                                            'e' => '2019-06-03 22:00:00'
+                                            'e' => '2019-5-10 22:00:00'
                                         ),
                                     1 => array(
-                                            's' => '2018-12-04 10:00:00',
-                                            'e' => '2018-12-04 23:59:59'
+                                            's' => '2019-05-13 10:00:00',
+                                            'e' => '2019-05-13 23:59:59'
                                         ),
                                     2 => array(
-                                            's' => '2018-12-05 10:00:00',
-                                            'e' => '2018-12-05 23:59:59'
+                                            's' => '2019-05-14 10:00:00',
+                                            'e' => '2019-05-14 23:59:59'
                                         ),
                                     3 => array(
-                                            's' => '2019-12-06 10:00:00',
-                                            'e' => '2019-12-06 23:59:59'
+                                            's' => '2019-05-15 10:00:00',
+                                            'e' => '2019-05-15 23:59:59'
                                     )
                                 );
 
@@ -187,11 +186,11 @@ class Activityn extends My_Controller {
             }
         }
         if (!$canGo1) {
-            if (time() > strtotime('2019-12-06 23:59:59')) {
-                header('Location: http://wx.wuliqinggu.com/project/AntiDrug20180626/over2.html');
+            if (time() > strtotime('2019-05-15 23:59:59')) {
+                header('Location: http://wx.wuliqinggu.com/testNingan/over2.html');
                 exit();
             }
-            header('Location: http://wx.wuliqinggu.com/project/AntiDrug20180626/over.html');
+            header('Location: http://wx.wuliqinggu.com/testNingan/over.html');
             exit();
         }
         // 检验红包
@@ -204,7 +203,7 @@ class Activityn extends My_Controller {
             }
         }
         // if (!$canGo2) {
-        //     header('Location: http://wx.wuliqinggu.com/project/AntiDrug20180626/over2.html');
+        //     header('Location: http://wx.wuliqinggu.com/testNingan/over2.html');
         //     exit();
         // }
 
@@ -245,7 +244,7 @@ class Activityn extends My_Controller {
             $res['data']['currentRed'] = $this->getCurrentRedPack();
             // $this->load->view('qrcode', array('return_json', json_encode($res)));
 
-            header('Location: http://wx.wuliqinggu.com/dist/index.html');
+            header('Location: http://wx.wuliqinggu.com/testNingan/erweima.html');
         } else {
             $this->Users_model->updateById(array('is_first' => 0), $isExist['id']);
             $userId = $isExist['id'];
@@ -258,9 +257,9 @@ class Activityn extends My_Controller {
             $res['data']['currentRed'] = $this->getCurrentRedPack();
 
             $this->session->set_userdata('user_id', $userId);
-            //            header('Location: http://wx.wuliqinggu.com/project/AntiDrug20180626/index.php?'.time());
+            //            header('Location: http://wx.wuliqinggu.com/testNingan/index.php?'.time());
             $this->html();
-            //            header('Location: http://wx.wuliqinggu.com/project/AntiDrug20180626/error2.html');
+            //            header('Location: http://wx.wuliqinggu.com/testNingan/error2.html');
         }
     }
 
@@ -490,7 +489,7 @@ class Activityn extends My_Controller {
         if (!$canGo) {
             $res['code'] = 3;
             $res['data']['reason'] = '不是活动时间';
-            header('Location: http://wx.wuliqinggu.com/project/AntiDrug20180626/error.html?');
+            header('Location: http://wx.wuliqinggu.com/testNingan/error.html?');
             exit(json_encode($res));
         }
         
@@ -515,7 +514,7 @@ class Activityn extends My_Controller {
             }
         }
 
-        header('Location: http://wx.wuliqinggu.com/project/AntiDrug20180626/error.html?');
+        header('Location: http://wx.wuliqinggu.com/testNingan/error.html?');
     }
 
     protected function getWeixinInfo()
@@ -589,7 +588,7 @@ class Activityn extends My_Controller {
     protected function getCurrentRedPack()
     {
         $list = $this->RedpackLog_model->getRedPackListToday();
-        $res = array(1000, 200, 200, 300, 400);
+        $res = array(500, 200, 200, 350, 400);
         foreach ($list as $lk => $lv) {
             $res[$lv['checkpoint']] = $res[$lv['checkpoint']] - 1;
             if ($res[$lv['checkpoint']] <= 0) {
@@ -751,16 +750,16 @@ class Activityn extends My_Controller {
              . "<meta http-equiv=\"Cache-Control\" content=\"no-cache, no-store, must-revalidate\" />"
              . "<meta http-equiv=\"Pragma\" content=\"no-cache\" />"
              . "<meta http-equiv=\"Expires\" content=\"0\" />"
-             . "<link rel=\"stylesheet\" href=\"../project/AntiDrug20180626/css/public.css\">"
-             . "<link rel=\"stylesheet\" href=\"../project/AntiDrug20180626/css/index.css\">"
+             . "<link rel=\"stylesheet\" href=\"../testNingan/css/public.css\">"
+             . "<link rel=\"stylesheet\" href=\"../testNingan/css/index.css\">"
              . "<title>“宪法知识”竞答活动</title>"
              . "</head>"
              . "<body>"
-               . "<audio preload=\"auto\" style=\"display:none;\" id=\"button\" src=\"../project/AntiDrug20180626/sound/button.mp3\">"
+               . "<audio preload=\"auto\" style=\"display:none;\" id=\"button\" src=\"../testNingan/sound/button.mp3\">"
                . "</audio>"
-               . "<audio preload=\"auto\" style=\"display:none;\" id=\"win\" src=\"../project/AntiDrug20180626/sound/win.mp3\">"
+               . "<audio preload=\"auto\" style=\"display:none;\" id=\"win\" src=\"../testNingan/sound/win.mp3\">"
                . "</audio>"
-               . "<audio preload=\"auto\"  style=\"display:none;\" id=\"lose\" src=\"../project/AntiDrug20180626/sound/lose.mp3\">"
+               . "<audio preload=\"auto\"  style=\"display:none;\" id=\"lose\" src=\"../testNingan/sound/lose.mp3\">"
                . "</audio>"
              . "<div class=\"container\">"
              . "	<div class=\"loading\"></div>"
@@ -1040,10 +1039,10 @@ class Activityn extends My_Controller {
              . "	</div>"
              . "</div>"
              . "</body>"
-             . "<script src=\"../project/AntiDrug20180626/js/load.js?\"></script>"
+             . "<script src=\"../testNingan/js/load.js?\"></script>"
              . "<script src=\"http://apps.bdimg.com/libs/jquery/1.8.1/jquery.min.js\"></script>"
-             . "<script src=\"../project/AntiDrug20180626/js/adapt.js\"></script>"
-             . "<script src=\"../project/AntiDrug20180626/js/main.js\"></script>"
+             . "<script src=\"../testNingan/js/adapt.js\"></script>"
+             . "<script src=\"../testNingan/js/main.js\"></script>"
              . "<script type=\"text/javascript\">"
              . "   define = null;"
              . "   require = null;"
