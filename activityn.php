@@ -257,8 +257,8 @@ class Activityn extends My_Controller {
             $res['data']['currentRed'] = $this->getCurrentRedPack();
 
             $this->session->set_userdata('user_id', $userId);
-            //            header('Location: http://wx.wuliqinggu.com/testNingan/index.php?'.time());
-            $this->html();
+                       header('Location: http://wx.wuliqinggu.com/testNingan/dist/index.html?'.time());
+            // $this->html();
             //            header('Location: http://wx.wuliqinggu.com/testNingan/error2.html');
         }
     }
@@ -688,7 +688,7 @@ class Activityn extends My_Controller {
 
     public function ttt()
     {
-        $res = $this->sendRedPack('1', 59);
+        // $res = $this->sendRedPack('1', 30);
         var_dump($res);
     }
 
@@ -703,7 +703,7 @@ class Activityn extends My_Controller {
         $postData['orderid'] = time() . '-' . $userId;
         $postData['reqtick'] = time();
         $postData['sign'] = md5($postData['uid'].$postData['type'].$postData['orderid'].$postData['money'].$postData['reqtick'].'PingAnJianAnWANGLUOJINDU');
-        $postData['title'] = '宪法只是竞答活动红包';
+        $postData['title'] = '扫黑除恶竞答活动红包';
         $postData['sendname'] = '平安静安';
         $postData['wishing'] = '平安静安';
 
