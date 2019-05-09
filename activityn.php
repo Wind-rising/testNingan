@@ -257,8 +257,8 @@ class Activityn extends My_Controller {
             $res['data']['currentRed'] = $this->getCurrentRedPack();
 
             $this->session->set_userdata('user_id', $userId);
-            //            header('Location: http://wx.wuliqinggu.com/testNingan/index.php?'.time());
-            $this->html();
+                       header('Location: http://wx.wuliqinggu.com/testNingan/dist/index.html?'.time());
+            // $this->html();
             //            header('Location: http://wx.wuliqinggu.com/testNingan/error2.html');
         }
     }
