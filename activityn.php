@@ -101,8 +101,8 @@ class Activityn extends My_Controller {
 
     protected $activityTimeList = array(
                                     0 => array(
-                                            's' => '2019-05-01 10:00:00',
-                                            'e' => '2019-5-10 22:00:00'
+                                            's' => '2019-06-01 10:00:00',
+                                            'e' => '2019-6-30 22:00:00'
                                         ),
                                     1 => array(
                                             's' => '2019-05-13 10:00:00',
