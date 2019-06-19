@@ -178,21 +178,21 @@ class Activityn extends My_Controller {
         }
         
         // 检验时间
-        $canGo1 = false;
-        foreach ($this->activityTimeList as $av) {
-            if (time() > strtotime($av['s']) && time() < strtotime($av['e'])) {
-                $canGo1 = true;
-                break;
-            }
-        }
-        if (!$canGo1) {
-            if (time() > strtotime('2019-06-30 23:59:59')) {
-                header('Location: http://wx.wuliqinggu.com/testNingan/over2.html');
-                exit();
-            }
-            header('Location: http://wx.wuliqinggu.com/testNingan/over.html');
-            exit();
-        }
+	        // $canGo1 = false;
+	        // foreach ($this->activityTimeList as $av) {
+	        //     if (time() > strtotime($av['s']) && time() < strtotime($av['e'])) {
+	        //         $canGo1 = true;
+	        //         break;
+	        //     }
+	        // }
+	        // if (!$canGo1) {
+	        //     if (time() > strtotime('2019-06-30 23:59:59')) {
+	        //         header('Location: http://wx.wuliqinggu.com/testNingan/over2.html');
+	        //         exit();
+	        //     }
+	        //     header('Location: http://wx.wuliqinggu.com/testNingan/over.html');
+	        //     exit();
+	        // }
         // 检验红包
         $canGo2 = false;
         $redpacks = $this->getCurrentRedPack();
