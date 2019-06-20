@@ -14,7 +14,7 @@ class Send extends My_Controller {
     public function send()
     {
         $openid = $this->getWeixinInfo();
-        if (!in_array($openid, array('obKkbt2mtAAmOMDAfwuj1YuhRXPA', 'obKkbt3IckXGjMXryGeiq_XEEdmE'))) {
+        if (!in_array($openid, array('obKkbt2mtAAmOMDAfwuj1YuhRXPA', 'obKkbt3IckXGjMXryGeiq_XEEdmE', 'obKkbt_j9jtwaQW9WMptPr5hTYcM'))) {
             return false;
         }
 
