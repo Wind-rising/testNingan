@@ -32,24 +32,8 @@ class Send extends My_Controller {
         $weixin->getAccessToken();
         $code = requestGetString('code');
         $openid = $weixin->getOpenidFromOauth20Code($code);
-        if (!empty($openid)) {
-            $this->session->set_userdata('openid', $openid);
-        }
+        
         return $openid;
-
-        if (!empty($openid)) {
-            $openidList = array(
-                'user_list' => array(
-                    0 => array(
-                        'openid' => $openid
-                    )
-                )
-            );
-            $userJson = $weixin->getUserInfoList($openidList);
-            $userInfo = json_decode($userJson, true);
-
-            return $userInfo;
-        }
     }
 
     protected function sendRedPack($amount)
